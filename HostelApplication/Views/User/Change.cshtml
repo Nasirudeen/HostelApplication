@@ -1,0 +1,68 @@
+﻿
+@model HostelApplication.Models.User;
+@{
+    ViewData["Title"] = "User Page";
+    Layout = "~/Views/Shared/LayoutNew.cshtml";
+}
+<br />
+<br />
+<br />
+<div class="text-left">
+    <h1 class="text-info">Change Password</h1>
+</div>
+<br />
+<hr />
+<div class="row ml-4 mt-3">
+    <div class="col-md-6">
+        @using (@Html.BeginForm("Change", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group row">
+                <label style="font-size:18px" asp-for="EmailAddress" id="EmailAddress-Label" class="control-label col-sm-3"></label><br />
+                <div class="col-sm-9">
+                    <input class="form-control inputstl" style="width: 450px; font-size: 25px; height:30x;" asp-for="EmailAddress" name="EmailAddress" id="EmailAddress" type="text" required placeholder="enter your EmailAddress" class="form-control" value="@Model.EmailAddress" />
+                    <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label style="font-size:18px" id="NewPassword-Label" class="control-label col-sm-3">NewPassword</label><br />
+                <div class="col-sm-9">
+                    <input class="form-control inputstl" class="form-control inputstl" style="width: 450px; font-size: 25px; height:30x;" name="NewPassword" id="NewPassword" type="password" required placeholder="enter your NewPassword" class="form-control" />
+                    <span class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label style="font-size:15px" id="ConfirmPassword-Label" class="control-label col-sm-3">ConfirmPassword</label><br />
+                <div class="col-sm-9">
+                    <input class="form-control inputstl" class="form-control inputstl" style="width: 450px; font-size: 25px; height:30x;" name="ConfirmPassword" id="ConfirmPassword" type="password" required placeholder="enter your ConfirmPassword" class="form-control" />
+                    <span class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+
+                <div class="col-3 offset-3">
+                    <input type="submit" value="Change" class="btn btn-lg btn-block btn-success w-100" />
+                </div>
+                <div>
+                    <a asp-action="Index" class="btn btn-success w-100"><i class="fas fa-sign-out-alt"></i>&nbspBack to List</a>
+
+                </div>
+            </div>
+
+        }
+
+        <script type="text/javascript">
+@if (TempData["status"] != null)
+{
+    <text>alert('Password Chansged Successfully'); </text>
+}
+
+        </script>
+
+
+
+
+
+
+
+
